@@ -2,7 +2,12 @@
 
 # Hybrid Database Support Backend for Healthcare Operations
 
-This repository packages our CS306 Phase 3 work into a clean, GitHub-ready project.
+A backend application demonstrating hybrid relational and NoSQL database usage
+in a healthcare support context.
+
+This project is based on a CS306 Phase 3 assignment and focuses on **database
+design, backend logic, and system integration**, rather than a full-scale
+healthcare product.
 
 ## Project structure
 - `sql/schema.sql` – MySQL/MariaDB dump (DB + tables + stored procedures + triggers)
