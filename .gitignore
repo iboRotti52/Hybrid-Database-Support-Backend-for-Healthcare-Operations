@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# PHP / Composer
+/vendor/
+composer.lock
+
+# Env
+.env
+
+# Logs
+*.log

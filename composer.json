@@ -1,0 +1,8 @@
+{
+  "name": "cs306/group-89-phase3",
+  "description": "CS306 Database Systems - Phase 3 demo (MySQL + MongoDB support ticket system)",
+  "type": "project",
+  "require": {
+    "mongodb/mongodb": "^1.20"
+  }
+}

@@ -1,0 +1,49 @@
+services:
+  web:
+    build: .
+    container_name: hastanep_web
+    ports:
+      - "8080:80"
+    environment:
+      # MySQL (used by /mysql_tests pages)
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: cs306
+      MYSQL_USER: cs306_user
+      MYSQL_PASSWORD: cs306_pass
+
+      # Mongo (used by ticket system)
+      MONGO_URI: mongodb://mongo:27017
+      MONGO_DB: cs306_support
+      MONGO_COLLECTION: tickets
+    depends_on:
+      - mysql
+      - mongo
+
+  mysql:
+    image: mysql:8.0
+    container_name: hastanep_mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cs306
+      MYSQL_USER: cs306_user
+      MYSQL_PASSWORD: cs306_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # Auto-import schema on first run
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+
+  mongo:
+    image: mongo:7
+    container_name: hastanep_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mysql_data:
+  mongo_data:
