@@ -29,8 +29,6 @@ services:
       MYSQL_DATABASE: cs306
       MYSQL_USER: cs306_user
       MYSQL_PASSWORD: cs306_pass
-    ports:
-      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       # Auto-import schema on first run
